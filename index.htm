@@ -3,7 +3,28 @@
   <title> </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
-  <body>
-
+  <link rel="stylesheet" href="public/css/index.css">
+  <body class="flex items-center justify-center vh-100">
+    <div class="w-75 center ba b--black-10" id="twitterVue">
+      <div class="pv2 tc bb b--black-10">
+        <h1 class="ma0 f5 normal">Compose New Tweet</h1>
+      </div>
+      <div class="bg-near-white pa3">
+        <textarea placeholder="Write your tweet here" name="tweet" v-model="tweet" rows="3" class="w-100 br2 ba b--black-10 pa2"></textarea>
+        <div class="mt3 flex justify-end">
+        <div class="flex items-center">
+          <span class="mr3 black-70" v-bind:class="{ 'dark-red': underTwentyMark, 'light-red': underTenMark }">
+            {{ charactersRemaining }}</span>
+          <button :disabled="tweetIsOutOfRange" class="button-reset bg-blue bn white f6 fw5 pv2 ph3 br2 dim">Tweet</button>
+        </div>
+        </div>
+      </div>
+      <p>The value of <strong>tweet </strong>is: {{tweet}} </p>
+      <p>The length of <strong>tweet </strong>is: {{tweet.length}} </p>
+      <p>The length of <strong>charactersRemaining </strong>is: {{charactersRemaining}} </p>
+      <p>The value of <strong>tweetIsOutOfRange</strong>is: {{ tweetIsOutOfRange}}</p>
+    </div>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.min.js"></script>
+  <script src="public/js/index.js"></script>
 </html>
