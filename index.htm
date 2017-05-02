@@ -12,8 +12,8 @@
       <div class="bg-near-white pa3">
         <textarea placeholder="Write your tweet here" name="tweet" v-model="tweet" rows="3" class="w-100 br2 ba b--black-10 pa2"></textarea>
         <div v-if="photoHasBeenUploaded" class="bg-black-10 pa2 flex">
-        <figure class="ma0 relative flex items-center justify-center">
-          <button @click="removePhoto" class="button-reset pointer dim bn bg-black h2 w2 br-100 white flex items-center justify-center absolute absolute--fill-l center">
+        <figure v-for="(photo, index) in photos" class="ma0 relative flex items-center justify-center">
+          <button @click="removePhoto(index)" class="button-reset pointer dim bn bg-black h2 w2 br-100 white flex items-center justify-center absolute absolute--fill-l center">
             <i class="material-icons f5">close</i>
           </button>
           <img v-bind:src="photo" class="h3 w3" alt="Uploaded photo">

@@ -4,7 +4,7 @@ new Vue({
   el: '#twitterVue',
   data: {
    tweet: '',
-   photo: null
+   photos: []
   },
   computed: {
     tweetIsOutOfRange: function() {
@@ -21,7 +21,7 @@ new Vue({
       return this.charactersRemaining > 10 && this.charactersRemaining <=20
     },
     photoHasBeenUploaded: function() {
-      return this.photo !== null;
+      return this.photos.length > 0;
     }
   },
   methods: {
@@ -30,16 +30,20 @@ new Vue({
     },
     handlePhotoUpload: function(e) {
       var self = this;
-      var reader = new FileReader();
+      var files = e.target.files;
 
-      reader.onload = function(e) {
-        self.photo = (e.target.result);
+      for (let i = 0; i < files.length; i++) {
+        let reader = new FileReader();
+
+        reader.onload = function(e) {
+          self.photos.push(e.target.result);
+        }
+
+        reader.readAsDataURL(files[i]);
       }
-
-      reader.readAsDataURL(e.target.files[0]);
     },
-    removePhoto: function() {
-      this.photo = null;
+    removePhoto: function(index) {
+      this.photos.splice(index, 1);
     }
   }
 });
