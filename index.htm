@@ -4,8 +4,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
   <link rel="stylesheet" href="public/css/index.css">
-  <body class="flex items-center justify-center vh-100">
-    <div class="w-75 center ba b--black-10" id="twitterVue">
+  <body class="flex items-center justify-center vh-100 bg-light-blue">
+    <div class="fl w-100 pa2 mw9 center ph3-ns">
+      <div class="cf ph2-ns">
+        <div class="w-60 pa2 center">
+          <h2 class="f3 tc">A demo of Vue.js</h2>
+        </div>
+
+    <div class="w-60 center ba bw4 b--black-05 bg-lightest-blue" id="twitterVue">
       <div class="pv2 tc bb b--black-10">
         <h1 class="ma0 f5 normal">Compose New Tweet</h1>
       </div>
@@ -33,10 +39,12 @@
           </div>
         </div>
       </div>
-      <p>The value of <strong>tweet </strong>is: {{tweet}} </p>
-      <p>The length of <strong>tweet </strong>is: {{tweet.length}} </p>
-      <p>The length of <strong>charactersRemaining </strong>is: {{charactersRemaining}} </p>
-      <p>The value of <strong>tweetIsOutOfRange</strong>is: {{ tweetIsOutOfRange}}</p>
+      <p class="ph3 f6">The value of <strong>tweet </strong>is: {{tweet}} </p>
+      <p class="ph3 f6">The length of <strong>tweet </strong>is: {{tweet.length}} </p>
+      <p class="ph3 f6">The length of <strong>charactersRemaining </strong>is: {{charactersRemaining}} </p>
+      <p class="ph3 f6">The value of <strong>tweetIsOutOfRange</strong>is: {{ tweetIsOutOfRange}}</p>
+    </div>
+    </div>
     </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.min.js"></script>
